@@ -1,0 +1,266 @@
+/* 1) Importa la fuente Audiowide */
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
+
+body {
+  background-color: #111;
+  margin: 0;
+  color: white;
+  font-family: sans-serif;
+}
+
+.contenedor-movil {
+  width: 360px;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
+  background-color: #1c1c1c;
+}
+
+/* —————— Cabecera “BRAIN” ————————————————————— */
+.titulo-brain {
+  font-family: 'Audiowide', sans-serif;
+  font-size: 32px;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+/* —————— Bienvenida y actualización ————————————————— */
+.welcome-text {
+  color: #fff;
+  font-size: 14px;
+  text-align: center;
+  margin-bottom: 2px;
+  margin-top: 30px;
+}
+.update-text {
+  color: #aaa;
+  font-size: 12px;
+  text-align: center;
+  margin-bottom: 16px;
+  letter-spacing: 0.5px;
+}
+
+/* —————— Score y etiquetas ————————————————————— */
+.contenedor-indicador {
+  width: 100%;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* —— burbuja-score actualizado —— */
+.burbuja-score {
+ font-family: 'Audiowide', sans-serif;
+  width: 100px;
+  height: 100px;
+  border: 2px solid #00ff66;
+  background-color:#1c1c1c;
+  border-radius: 50%;
+  color: #00ff66;
+  font-size: 28px;
+  font-weight: bold;
+  line-height: 100px;
+  text-align: center;
+  /* eliminados box-shadow y animación */
+}
+
+.etiqueta-score {
+  color: #aaa;
+  font-size: 12px;
+  margin-top: 6px;
+  letter-spacing: 1px;
+}
+
+/* —————— Título sección ——————————————————————— */
+.titulo {
+  position: relative;
+  top: -8px;
+  margin-bottom: 5px;
+  color: rgb(182, 181, 181);
+  font-weight: bold;
+  font-size: 15px;   /* ejemplo: más pequeño */
+}
+
+.etiqueta-seccion {
+  color: #ddd;
+  font-size: 16px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+/* —————— Contenedor Gris ————————————————————————————— */
+.barras-container {
+  background-color:#2a2a2a;   /* gris oscuro fuerte */
+  padding: 10px;             /* el padding que pediste */
+  padding-left: 15px;
+  padding-right: 25px;
+  border-radius: 20px;       /* opcional, para esquinas suaves */
+  margin-bottom: 25px;      /* separa un poco del resto */
+}
+/* —————— Barras ————————————————————————————— */
+.contenedor-barra {
+  position: relative;
+  margin-bottom: 25px;
+  padding: 0px;      /* padding para que no se salgan los marcadores */
+}
+
+/* Separador interno opcional */
+.separador-interno {
+  border: none;
+  border-top: 1px solid #444;
+  margin: 24px 0;
+}
+
+
+
+/* línea negra vertical al 50% */
+.contenedor-barra::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1px;
+  height: 100%;
+  background-color: #222;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.barra-color,
+.barra-color-invertida {
+  width: 100%;
+  height: 20px;
+  border-radius: 10px;
+  position: relative;
+  z-index: 0;
+}
+
+.barra-color {
+  background: linear-gradient(to right,
+    #ff6a00 0%, #ffa500 25%, #e6ffe6 50%, #66ff66 75%, #00cc00 100%);
+}
+
+.barra-color-invertida {
+  background: linear-gradient(to right,
+    #00cc00 0%, #66ff66 25%, #e6ffe6 50%, #ffa500 75%, #ff6a00 100%);
+}
+
+.marcador {
+  position: absolute;
+  top: -20px; /* -18px  -> Antes de juntar las barras*/
+  transform: translateX(-50%);
+  font-weight: bold;
+  color: white;
+  font-size: 12px;
+  text-align: center;
+}
+/*
+.marcador::after {
+  content: "";
+  display: block;
+  margin: 4px auto 0;
+  width: 0; height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid red;
+}*/
+.marcador::after {
+  content: "";
+  display: block;
+  margin: 4px auto 0;
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid red;
+}
+
+/* Marcador MORADO (flecha) sin texto */
+.marcador-acum {
+  position: absolute;
+  top: -17px;            /* pegado a la barra, igual que el rojo */
+  transform: translateX(-50%);
+ /* width: 0; height: 0;*/
+}
+.marcador-acum::after {
+  content: "";
+  display: block;
+  margin: 26px auto 0;
+  width: 0; height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid purple;
+}
+
+/* Texto morado ABAJO de la flecha */
+.text-acum {
+  position: absolute;
+  bottom: -32px;         /* ajusta este valor para separarlo */
+  transform: translateX(-50%);
+  font-weight: bold;
+  color: white;
+  font-size: 12px;
+  text-align: center;
+}
+/* --------------------------------------------*/
+
+.separador {
+  border: none;
+  border-top: 1px solid #444;
+  margin: 20px 0;
+}
+/*
+.minimo,
+.maximo {
+  position: absolute;
+  bottom: -20px;
+  font-size: 12px;
+  font-weight: bold;
+  color: #bbb;
+}
+.minimo { left: 0; }
+.maximo { left: 100%; transform: translateX(-100%); } */
+
+
+.meta-centro,
+.minimo,
+.maximo {
+  position: absolute;
+  bottom: -20px;
+  font-size: 12px;
+  font-weight: bold;
+  color: #bbb;
+}
+
+.meta-centro { transform: translateX(-50%); }
+.minimo      { left: 0; }
+.maximo      { left: 100%; transform: translateX(-100%); }
+
+
+@keyframes pulso {
+  0%   { transform: scale(1);   box-shadow: 0 0 10px #00ff6633; }
+  50%  { transform: scale(1.1); box-shadow: 0 0 20px #00ff66; }
+  100% { transform: scale(1);   box-shadow: 0 0 10px #00ff6633; }
+}
+
+/*  -------------------------- Styles Hecsari */
+/* ─────────── Tabs personalizados ─────────── */
+.tabs-custom .tab {
+    background-color: #000;      /* fondo negro para todos */
+    color: #ccc;                 /* letras gris claro */
+    border: 1px solid #444;      /* borde gris oscuro */
+    font-weight: normal;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.tabs-custom .tab--selected {
+    background-color: #2a2a2a;   /* fondo gris más claro al seleccionar */
+    color: #ccc;
+    border-bottom: 3px solid white;
+    font-weight: bold;
+}
+
