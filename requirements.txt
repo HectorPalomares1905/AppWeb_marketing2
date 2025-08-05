@@ -3,4 +3,5 @@ plotly
 dash
 dash-auth
 openpyxl
+gunicorn
 datetime
